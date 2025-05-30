@@ -20,7 +20,6 @@
  const getSingle = async (req, res) => {
   try {
     const contactId = new ObjectId(req.params.id);
-
     const result = await mongodb.getDatabase().collection('contacts').find({ _id: contactId });
     const contacts = await result.toArray();
     if (!contacts || contacts.length === 0) {
